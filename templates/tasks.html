@@ -8,8 +8,10 @@
     <div class="collapsible-header white-text pink darken-1 text-shadow">
       <div class="col s3">
         <i class="fas fa-caret-down"></i>
-        <a href="" class="a btn-small green lighten-2">Done</a>
-        <a href="{{ url_for('edit_task', task_id=task._id) }}" class="a btn-small pink lighten-2">Edit</a>
+        {% if session.user|lower == task.created_by|lower %}
+            <a href="" class="a btn-small green lighten-2">Done</a>
+            <a href="{{ url_for('edit_task', task_id=task._id) }}" class="a btn-small pink lighten-2">Edit</a>
+        {% endif %}
       </div>
       <div class="col s9">
         <strong>{{task.task_name }}</strong> : {{ task.due_date }} {% if
