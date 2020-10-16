@@ -3,7 +3,18 @@
 <h3 class="pink-text text-darken-1 center-align">Manage Categories</h3>
 
 <div class="row">
-{% for category in categories %}
+  <div class="col s12 center-align">
+    <a
+      href="{{ url_for('add_category') }}"
+      class="btn-large pink darken-2 text-shadow"
+    >
+      Add category <i class="fas fa-plus-square right"></i>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  {% for category in categories %}
   <div class="col s12 m3">
     <div class="card pink darken-2 text-shadow center-align">
       <div class="card-content white-text">
